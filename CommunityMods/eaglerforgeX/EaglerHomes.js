@@ -1,6 +1,6 @@
 ModAPI.require("player");
 ModAPI.addEventListener("sendchatmessage", function (event) {
-    if(event.message === "{sethome}"){
+    if(event.message === "/sethome"){
         localStorage.setItem("HomePosX", Math.round(ModAPI.player.x));
         localStorage.setItem("HomePosY", Math.round(ModAPI.player.y));
         localStorage.setItem("HomePosZ", Math.round(ModAPI.player.z));
@@ -9,7 +9,7 @@ ModAPI.addEventListener("sendchatmessage", function (event) {
         }else{
             ModAPI.displayToChat({msg: "Failed to Set Home!"});
         }
-    }else if(event.message === "{home}"){
+    }else if(event.message === "/home"){
         ModAPI.player.sendChatMessage({message: "/tp " + localStorage.getItem("HomePosX") + " " + localStorage.getItem("HomePosY") + " " + localStorage.getItem("HomePosZ")});
     }else if(event.message === "/help"){
         ModAPI.displayToChat({msg: "{EGHomesHelp}"});
